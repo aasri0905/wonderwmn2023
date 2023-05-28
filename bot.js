@@ -1,10 +1,11 @@
 const { Telegraf ,session,  Markup } = require('telegraf');
 const axios = require('axios');
+require('dotenv').config();
+const token = process.env.TOKEN;
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
 
-const token  = '6112846390:AAH7i8XPgvV1HdN3CTKgohD61isBhK6wHFY';
-const accountSid = "ACf7782600b288dfe194c208a36d6a251f";
-const authToken = "680c6e4dde5d08a56a4ce7be851cbc63";
-const client = require("twilio")(accountSid, authToken);
+// const client = require("twilio")(accountSid, authToken);
 const bot = new Telegraf(token);
 
 const data = {};
@@ -55,7 +56,7 @@ async function calculateDistance(ctx, destination, liveLocation) {
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/directions/json?origin=${liveLocation.latitude},${liveLocation.longitude}&destination=${encodeURIComponent(
         destination
-      )}&key=AIzaSyDexWDzKlmG2GOnm4pyXzQgADV5zA5pWnY`
+      )}&key=${process.env.MAP}`
     );
 
     if (response.data.routes.length > 0) {
