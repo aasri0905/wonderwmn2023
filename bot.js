@@ -5,7 +5,7 @@ const token = process.env.TOKEN;
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
 
-// const client = require("twilio")(accountSid, authToken);
+
 const bot = new Telegraf(token);
 
 const data = {};
@@ -57,6 +57,7 @@ async function calculateDistance(ctx, destination, liveLocation) {
       `https://maps.googleapis.com/maps/api/directions/json?origin=${liveLocation.latitude},${liveLocation.longitude}&destination=${encodeURIComponent(
         destination
       )}&key=${process.env.MAP}`
+
     );
 
     if (response.data.routes.length > 0) {
