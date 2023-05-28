@@ -1,9 +1,9 @@
 const { Telegraf ,session,  Markup } = require('telegraf');
 const axios = require('axios');
 
-const token  = '6112846390:AAH7i8XPgvV1HdN3CTKgohD61isBhK6wHFY';
-const accountSid = "ACf7782600b288dfe194c208a36d6a251f";
-const authToken = "680c6e4dde5d08a56a4ce7be851cbc63";
+const token  = '';
+const accountSid = "";
+const authToken = "";
 const client = require("twilio")(accountSid, authToken);
 const bot = new Telegraf(token);
 
