@@ -55,7 +55,7 @@ async function calculateDistance(ctx, destination, liveLocation) {
     const response = await axios.get(
       `https://maps.googleapis.com/maps/api/directions/json?origin=${liveLocation.latitude},${liveLocation.longitude}&destination=${encodeURIComponent(
         destination
-      )}&key=AIzaSyDexWDzKlmG2GOnm4pyXzQgADV5zA5pWnY`
+      )}&key={key}`
     );
 
     if (response.data.routes.length > 0) {
